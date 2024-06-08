@@ -1,0 +1,33 @@
+<div class="">
+
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+
+        <th scope="col">Booking Number</th>
+        <th scope="col">Sender name</th>
+        <th scope="col">Receiver Address</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr app-usa-booking-ui *ngFor="let usaBooking of usaBookings |
+       slice: (page-1) * pageSize : page * pageSize;
+        track item" [usaBooking]="usaBooking" >
+
+      </tr>
+
+
+
+
+
+    </tbody>
+    </table>
+
+    <ngb-pagination class="d-flex justify-content-center " [(page)]="page"
+                  [pageSize]="pageSize"
+                  [collectionSize]="usaBookings.length" />
+  </div>

@@ -1,0 +1,15 @@
+<div class="container">
+    <ngx-scanner-qrcode #action="scanner" [config]="config" (event)="onEvent($event, action)" ></ngx-scanner-qrcode>
+<!-- Loading -->
+<p *ngIf="action.isLoading">⌛ Loading...</p>
+
+<!-- start/stop -->
+<button class="btn" [class.btn-info]="!action.isStart" [class.btn-warning]="action.isStart" [disabled]="action.isLoading" (click)="handle(action, action.isStart ? 'stop' : 'start')">
+  <img [src]="action.isStart ? 'https://id1945.github.io/images/svg/camera-off.svg' : 'https://id1945.github.io/images/svg/camera-on.svg'" width="30px"/>
+</button>
+
+
+
+<button  *ngIf="isMmDelivery&&action.data.value.length!=0" class="btn btn-success " (click)="reloadDataForMm(action.data.value)">Detail</button>
+<button  *ngIf="!isMmDelivery&&action.data.value.length!=0" class="btn btn-success " (click)="reloadDataForUsa(action.data.value)">Detail</button>
+</div>

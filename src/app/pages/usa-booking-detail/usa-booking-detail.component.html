@@ -1,0 +1,80 @@
+<table class="table ">
+
+	<tbody>
+
+			<tr class="table-info ">
+				<th scope="row">Book Number</th>
+				<td>{{bookingDetail?.booking_number}}</td>
+			</tr>
+
+      <tr class="table-primary ">
+				<th scope="row">sender_name</th>
+				<td>{{bookingDetail?.sender_name}}</td>
+			</tr>
+
+      <tr class="table-primary ">
+				<th scope="row">sender_phone</th>
+				<td>{{bookingDetail?.sender_phone}}</td>
+			</tr>
+
+      <tr class="table-warning ">
+				<th scope="row"> 	receiver_name</th>
+				<td>{{bookingDetail?.receiver_name}}</td>
+			</tr>
+
+      <tr class="table-warning ">
+				<th scope="row"> 	receiver_phone</th>
+				<td>{{bookingDetail?.receiver_phone}}</td>
+			</tr>
+
+	</tbody>
+</table>
+
+<table class="table ">
+
+	<tbody>
+    <tr class="table-success ">
+      <th scope="row"> 	assign_at</th>
+      <td>{{bookingDetail?.assign_at | date: 'dd/MM/yyyy hh:mm a'}}</td>
+
+    </tr>
+
+    <tr class="table-success ">
+      <th scope="row"> 	road_at</th>
+      <td>{{bookingDetail?.road_at | date: 'dd/MM/yyyy hh:mm a'}}</td>
+
+    </tr>
+
+    <tr class="table-success  ">
+      <th scope="row"> 	complete_at</th>
+      <td>{{bookingDetail?.complete_at | date: 'dd/MM/yyyy hh:mm a'}}</td>
+
+    </tr>
+	</tbody>
+</table>
+
+<div [ngSwitch]="currentState">
+  <div>
+    <button *ngSwitchCase=1 type="button" class="btn btn-primary " (click)="nextStateForAssign(bookingDetail)">Change For Accept</button>
+  </div>
+
+  <div>
+    <button *ngSwitchCase=2 type="button" class="btn btn-primary " (click)="nextStateForRoad(bookingDetail)">change for road</button>
+  </div>
+
+  <div>
+    <button *ngSwitchCase=3 type="button" class="btn btn-primary" (click)="nextStateForComplete(bookingDetail)">change for complete</button>
+  </div>
+
+  <div>
+    <button *ngSwitchCase=4 type="button" class="btn btn-primary ">complete status</button>
+  </div>
+
+  <div>
+    <button *ngSwitchCase=5 type="button" class="btn btn-primary ">5</button>
+  </div>
+
+</div>
+
+<!-- <button type="button"
+  class="btn btn-warning" (click)="nextState(bookingDetail)">Check</button> -->

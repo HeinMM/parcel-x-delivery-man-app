@@ -1,0 +1,29 @@
+<div class="">
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+
+			<th scope="col">Booking Number</th>
+			<th scope="col">Sender Address</th>
+			<th scope="col">Receiver Address</th>
+      <th scope="col">Action</th>
+		</tr>
+	</thead>
+
+  <tbody>
+
+    <tr app-booking-ui *ngFor="let booking of bookings |
+     slice: (page-1) * pageSize : page * pageSize;
+      track item" [booking]="booking" >
+
+    </tr>
+
+  </tbody>
+  </table>
+
+  <ngb-pagination class="d-flex justify-content-center " [(page)]="page"
+                [pageSize]="pageSize"
+                [collectionSize]="bookings.length" />
+</div>
